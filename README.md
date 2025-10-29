@@ -29,6 +29,24 @@ One-click publishing from Drafts to [Telegraph](https://telegra.ph). Converts ma
 
 [Full Documentation](ACTION-DESCRIPTION.md) | [View Script](publish-to-telegraph.js)
 
+### 🗺️ Get Map Links
+
+Generate map links for any address in Apple Maps, Google Maps, and Waze. Perfect for sharing locations or quickly opening addresses in your preferred navigation app.
+
+**Features:**
+- Generates links for all three major map services
+- Copies formatted links to clipboard automatically
+- Interactive prompt to open any map directly
+- Works with any address format
+
+**Usage:**
+1. Create a draft with an address (single or multi-line)
+2. Run the "Get Map Links" action
+3. Links are copied to clipboard
+4. Choose to open in Apple Maps, Google Maps, or Waze
+
+[View Script](get-map-links.js)
+
 ## Installation
 
 ### Method 1: Manual Installation
@@ -70,6 +88,7 @@ Simply run the action on any draft to see it in action!
 ├── CLAUDE.md                      # Development guidelines
 ├── ACTION-DESCRIPTION.md          # Detailed action documentation
 ├── publish-to-telegraph.js        # Telegraph publishing action
+├── get-map-links.js               # Map links generator action
 ├── test-markdown.md               # Test content for actions
 └── .gitignore                     # Git ignore rules
 ```
