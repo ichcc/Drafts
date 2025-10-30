@@ -16,8 +16,7 @@ try {
     // Validate that we have an address
     if (!address) {
         app.displayWarningMessage("Draft is empty. Please enter an address.");
-        context.fail();
-        return;
+        context.fail;
     }
 
     // URL encode the address for use in map URLs
@@ -70,10 +69,9 @@ ${wazeLink}`;
     }
 
     app.displaySuccessMessage("Map links copied to clipboard!");
-    context.succeed();
+    context.succeed;
 
 } catch (error) {
     app.displayErrorMessage("Error: " + error.message);
-    context.fail();
-    return;
+    context.fail;
 }
