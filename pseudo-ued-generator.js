@@ -2,81 +2,66 @@
 // Generates cyber-mystical 4x4 segment identifiers
 // Not real UUIDs — aesthetic, ritualistic, judeo-cyberpunk
 
-const HEX = '0123456789abcdef';
+var HEX = "0123456789abcdef";
 
-// Cyber-mystical Unicode glyphs
-const GLYPHS = [
-  '∴', '∵', '⊕', '⊗', '⊙', '⊚', '⊛', '⊜', '⊝', '⊞', '⊟', '⊠', '⊡',
-  '◈', '◉', '◊', '○', '◌', '◍', '◎', '●', '◐', '◑', '◒', '◓', '◔', '◕',
-  '◖', '◗', '◘', '◙', '◚', '◛', '◜', '◝', '◞', '◟', '◠', '◡', '◢', '◣',
-  '◤', '◥', '◦', '◧', '◨', '◩', '◪', '◫', '◬', '◭', '◮', '◯', '☰', '☱',
-  '☲', '☳', '☴', '☵', '☶', '☷', '✦', '✧', '✨', '✩', '✪', '✫', '✬', '✭'
+var GLYPHS = [
+  "\u2234", "\u2235", "\u2295", "\u2297", "\u2299", "\u229A", "\u229B", "\u229C",
+  "\u25C8", "\u25C9", "\u25CA", "\u25CB", "\u25CC", "\u25CD", "\u25CE", "\u25CF",
+  "\u25D0", "\u25D1", "\u25D2", "\u25D3", "\u25D4", "\u25D5", "\u25D6", "\u25D7",
+  "\u25E2", "\u25E3", "\u25E4", "\u25E5", "\u2630", "\u2631", "\u2632", "\u2633",
+  "\u2726", "\u2727", "\u2728", "\u2729", "\u272A", "\u272B", "\u272C", "\u272D"
 ];
 
 function randomChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function block(unicodeChance = 0.15) {
-  let chars = [];
-  for (let i = 0; i < 4; i++) {
-    if (Math.random() < unicodeChance) {
+function block(chance) {
+  var chars = [];
+  for (var i = 0; i < 4; i++) {
+    if (Math.random() < chance) {
       chars.push(randomChoice(GLYPHS));
     } else {
       chars.push(randomChoice(HEX));
     }
   }
-  return chars.join('');
+  return chars.join("");
 }
 
-function generateUED(unicodeChance = 0.15) {
-  return `${block(unicodeChance)}-${block(unicodeChance)}-${block(unicodeChance)}-${block(unicodeChance)}`;
+function generateUED(chance) {
+  return block(chance) + "-" + block(chance) + "-" + block(chance) + "-" + block(chance);
 }
 
-// Prompt user for mysticism level
-const prompt = Prompt.create();
-prompt.title = "Pseudo-UED Generator";
-prompt.message = "Select mysticism level:";
+var p = Prompt.create();
+p.title = "Pseudo UED";
+p.message = "Select mysticism level";
 
-prompt.addButton("Pure Hex (0%)");
-prompt.addButton("Low (15%)");
-prompt.addButton("Medium (30%)");
-prompt.addButton("High (50%)");
-prompt.addButton("Maximum (75%)");
+p.addButton("Pure Hex");
+p.addButton("Low 15%");
+p.addButton("Medium 30%");
+p.addButton("High 50%");
+p.addButton("Max 75%");
 
-if (prompt.show()) {
-  let unicodeChance = 0.0;
+if (p.show()) {
+  var chance = 0.0;
 
-  switch (prompt.buttonPressed) {
-    case "Pure Hex (0%)":
-      unicodeChance = 0.0;
-      break;
-    case "Low (15%)":
-      unicodeChance = 0.15;
-      break;
-    case "Medium (30%)":
-      unicodeChance = 0.30;
-      break;
-    case "High (50%)":
-      unicodeChance = 0.50;
-      break;
-    case "Maximum (75%)":
-      unicodeChance = 0.75;
-      break;
+  if (p.buttonPressed === "Pure Hex") {
+    chance = 0.0;
+  } else if (p.buttonPressed === "Low 15%") {
+    chance = 0.15;
+  } else if (p.buttonPressed === "Medium 30%") {
+    chance = 0.30;
+  } else if (p.buttonPressed === "High 50%") {
+    chance = 0.50;
+  } else if (p.buttonPressed === "Max 75%") {
+    chance = 0.75;
   }
 
-  // Generate the UED
-  const ued = generateUED(unicodeChance);
+  var ued = generateUED(chance);
 
-  // Insert at cursor or append to draft
-  const selection = editor.getSelectedRange();
   editor.setSelectedText(ued);
-
-  // Optional: Also copy to clipboard
   app.setClipboard(ued);
-
-  // Success message
-  app.displaySuccessMessage(`Generated: ${ued}`);
+  app.displaySuccessMessage("Generated: " + ued);
 } else {
   context.cancel();
 }
