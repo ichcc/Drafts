@@ -36,6 +36,7 @@ let f = () => {
             "Simplify",
             "Shorten",
             "Expand",
+            "Translate to English",
             "Translate to Hebrew",
             "Translate to Ukrainian"
         ],
@@ -79,6 +80,7 @@ let f = () => {
         "Simplify": "Simplify the language. Use shorter sentences and simpler words while keeping the same meaning.",
         "Shorten": "Make this more concise. Remove unnecessary words while keeping all key information.",
         "Expand": "Expand this text with more detail and explanation while maintaining clarity.",
+        "Translate to English": "Translate to English. Keep the original tone and formatting.",
         "Translate to Hebrew": "Translate to Hebrew. Keep the original tone and formatting.",
         "Translate to Ukrainian": "Translate to Ukrainian. Keep the original tone and formatting.",
         "Custom (use text below)": customInstruction
