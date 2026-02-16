@@ -134,12 +134,14 @@ let f = () => {
     }
 
     let http = HTTP.create();
+    const startTime = Date.now();
     let response = http.request({
         "url": url,
         "method": "POST",
         "headers": { "Content-Type": "application/json" },
         "data": requestBody
     });
+    const latencyMs = Date.now() - startTime;
 
     if (!response.success) {
         let errorMsg = "API request failed";
@@ -191,19 +193,19 @@ let f = () => {
         case "Replace":
             editor.setSelectedText(answer);
             editor.setSelectedRange(st, answer.length);
-            app.displayInfoMessage("✅ Replaced");
+            app.displayInfoMessage(`✅ Replaced (${latencyMs}ms)`);
             break;
 
         case "Append":
             const combined = `${selection}\n\n---\n\n${answer}`;
             editor.setSelectedText(combined);
             editor.setSelectedRange(st, combined.length);
-            app.displayInfoMessage("✅ Appended");
+            app.displayInfoMessage(`✅ Appended (${latencyMs}ms)`);
             break;
 
         case "Clipboard":
             app.setClipboard(answer);
-            app.displayInfoMessage("📋 Copied to clipboard");
+            app.displayInfoMessage(`📋 Copied to clipboard (${latencyMs}ms)`);
             break;
 
         case "New Draft":
@@ -218,7 +220,7 @@ let f = () => {
 
             newDraft.update();
             editor.load(newDraft);
-            app.displayInfoMessage("📝 Created new draft with link to original");
+            app.displayInfoMessage(`📝 Created new draft with link to original (${latencyMs}ms)`);
             break;
     }
 
