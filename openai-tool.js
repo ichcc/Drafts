@@ -97,7 +97,7 @@ let f = () => {
     // 4. API Request
     const model = thinkingMode ? "o4-mini" : "gpt-4o-mini";
     const url = "https://api.openai.com/v1/chat/completions";
-
+    const maxTokens = thinkingMode ? 2048 : 1024;
     const requestBody = {
         "model": model,
         "messages": [
@@ -110,7 +110,8 @@ let f = () => {
                 "content": `Instruction: ${finalInstruction}\n\nText to process:\n${selection}`
             }
         ],
-        "max_completion_tokens": 2048
+        "max_completion_tokens": maxTokens,
+        "model": model
     };
 
     // Only set temperature for non-reasoning models (o-series don't support it)
