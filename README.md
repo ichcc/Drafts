@@ -47,6 +47,98 @@ Generate map links for any address in Apple Maps, Google Maps, and Waze. Perfect
 
 [View Script](get-map-links.js)
 
+### 📍 Send Location to Telegram
+
+Instantly share your current location to Telegram with timestamp, place name, and map link. Perfect for quick check-ins or sharing where you are.
+
+**Features:**
+- Automatic GPS location capture from device
+- Reverse geocoding to human-readable address
+- Timestamp with formatted date/time
+- Apple Maps link included
+- Opens Telegram with pre-filled message
+
+**Usage:**
+1. Run the "Send Location to Telegram" action
+2. Grant location permissions if prompted
+3. Telegram opens with message ready to send
+4. Send to your configured recipient
+
+[View Script](send-location-to-telegram.js)
+
+### 🧬 Claude Writing Tool
+
+AI-powered text editing using Anthropic's Claude models. Transform selected text with quick actions or custom instructions, with optional deep thinking mode for complex tasks.
+
+**Features:**
+- Multiple quick actions (Fix Grammar, Make Professional, Simplify, Shorten, Expand)
+- Translation support (English, Hebrew, Ukrainian)
+- Custom instruction mode for any task
+- Deep Thinking Mode using Claude Opus with extended thinking
+- Four output options: New Draft, Replace, Append, or Clipboard
+- API key stored securely in Drafts credentials
+
+**Quick Actions:**
+- Fix Grammar
+- Make Professional
+- Simplify / Shorten / Expand
+- Translate to English/Hebrew/Ukrainian
+- Custom instructions
+
+**Usage:**
+1. Select text in your draft
+2. Run the "Claude Writing Tool" action
+3. Choose a quick action or enter custom instruction
+4. Optional: Enable Deep Thinking Mode for complex analysis
+5. Select output destination
+6. API key required (enter once, stored securely)
+
+[View Script](claude-tool.js)
+
+### 🤖 OpenAI Writing Tool
+
+AI-powered text editing using OpenAI's GPT models. Same powerful features as Claude tool, with GPT-4o-mini for fast processing and o4-mini for deep reasoning.
+
+**Features:**
+- Multiple quick actions (Fix Grammar, Make Professional, Simplify, Shorten, Expand)
+- Translation support (English, Hebrew, Ukrainian)
+- Custom instruction mode for any task
+- Deep Thinking Mode using o4-mini reasoning model
+- Four output options: New Draft, Replace, Append, or Clipboard
+- API key stored securely in Drafts credentials
+
+**Usage:**
+1. Select text in your draft
+2. Run the "OpenAI Writing Tool" action
+3. Choose a quick action or enter custom instruction
+4. Optional: Enable Deep Thinking Mode for complex tasks
+5. Select output destination
+6. API key required (enter once, stored securely)
+
+[View Script](openai-tool.js)
+
+### ♊️ Gemini Writing Tool
+
+AI-powered text editing using Google's Gemini models. Fast, efficient text processing with Gemini 3 Flash, with optional deep thinking mode for complex analysis.
+
+**Features:**
+- Multiple quick actions (Fix Grammar, Make Professional, Simplify, Shorten, Expand)
+- Translation support (English, Hebrew, Ukrainian)
+- Custom instruction mode for any task
+- Deep Thinking Mode with configurable thinking budget
+- Four output options: New Draft, Replace, Append, or Clipboard
+- API key stored securely in Drafts credentials
+
+**Usage:**
+1. Select text in your draft
+2. Run the "Gemini Writing Tool" action
+3. Choose a quick action or enter custom instruction
+4. Optional: Enable Deep Thinking Mode for complex analysis
+5. Select output destination
+6. API key required (enter once, stored securely)
+
+[View Script](gemini-tool.js)
+
 ## Installation
 
 ### Method 1: Manual Installation
@@ -89,6 +181,10 @@ Simply run the action on any draft to see it in action!
 ├── ACTION-DESCRIPTION.md          # Detailed action documentation
 ├── publish-to-telegraph.js        # Telegraph publishing action
 ├── get-map-links.js               # Map links generator action
+├── send-location-to-telegram.js   # Telegram location sharing action
+├── claude-tool.js                 # Claude AI writing tool
+├── openai-tool.js                 # OpenAI writing tool
+├── gemini-tool.js                 # Google Gemini writing tool
 ├── test-markdown.md               # Test content for actions
 └── .gitignore                     # Git ignore rules
 ```
