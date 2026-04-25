@@ -117,6 +117,23 @@ AI-powered text editing using OpenAI's GPT models. Same powerful features as Cla
 
 [View Script](openai-tool.js)
 
+### 🎵 orc.link Decoder
+
+Extract and format streaming service links from an [orc.link](https://orc.link) music URL into a clean markdown list.
+
+**Features:**
+- Parses Apple Music, Spotify, YouTube, YouTube Music, TIDAL, Deezer, SoundCloud, Amazon Music links
+- Outputs services in preferred order with emoji icons
+- Extracts page title via og:title meta tag
+- Skips noise domains (TikTok, ad networks)
+
+**Usage:**
+1. Paste an orc.link URL into a draft
+2. Run the "orc.link Decoder" action
+3. Draft is replaced with a formatted markdown link list
+
+[View Script](orcd.js)
+
 ### ♊️ Gemini Writing Tool
 
 AI-powered text editing using Google's Gemini models. Fast, efficient text processing with Gemini 3 Flash, with optional deep thinking mode for complex analysis.
@@ -185,6 +202,7 @@ Simply run the action on any draft to see it in action!
 ├── claude-tool.js                 # Claude AI writing tool
 ├── openai-tool.js                 # OpenAI writing tool
 ├── gemini-tool.js                 # Google Gemini writing tool
+├── orcd.js                        # orc.link music URL decoder
 ├── test-markdown.md               # Test content for actions
 └── .gitignore                     # Git ignore rules
 ```
